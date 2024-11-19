@@ -1,0 +1,27 @@
+{% extends 'base.html '%}
+
+{% block todoname %}
+Add
+{% endblock %}
+
+
+{%block main%}
+<div class="todo-form">
+    <h2>Create To-Do</h2>
+    <form action="#" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="todoName" class="form-label">To-Do Name</label>
+
+            <input type="text" class="form-control" id="todoName" name="name" value="{{todo.todo_name}}"
+                placeholder="Enter to-do name" required>
+        </div>
+        <div class="mb-3">
+            <label for="todoDescription" class="form-label">To-Do Description</label>
+            <textarea class="form-control" id="todoDescription" name="desc" rows="4"
+                placeholder="Enter to-do description" required>{{todo.todo_description}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

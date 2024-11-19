@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block todoname %}
+List
+{% endblock%}
+
+{% block main %}
+<main>
+
+  <table class="table responstable">
+    <thead class="thead-dark">
+      <tr>
+
+        <th scope="col">SNo.</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for todo in todos %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{todo.todo_name}}</td>
+        <td>{{todo.todo_description|truncatewords:20}}</td>
+        <td>
+          <form action="" class="form" method="post">
+            {%csrf_token%}
+            <a href="{% url 'update' todo.id %}" class="btn btn-success">Edit</a>
+            <a href="{% url 'delete' todo.id %}" class="btn btn-danger">Delete</a>
+          </form>
+        </td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+
+</main>
+{% endblock%}
