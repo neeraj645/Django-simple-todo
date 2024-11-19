@@ -33,7 +33,7 @@ Make sure you have the following installed:
    ```bash
    cd Django-simple-app
 3. **Create virtual environment**:
-        -- if you are unable to create virtual environment then install virtualenv
+        -- if you are unable to create virtual environment then install "pip install virtualenv"
    ```bash
    pip install -r requirements.txt
 4. **Create virtual environment**:
